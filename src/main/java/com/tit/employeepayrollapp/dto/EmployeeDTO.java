@@ -1,5 +1,7 @@
 package com.tit.employeepayrollapp.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -11,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 
 public class EmployeeDTO {
+    @NotBlank(message = "Name is required and cannot be null")
+    @Pattern(regexp = "^[A-Za-z ]{2,50}$", message = "Name must be between 2-50 characters and contain only letters and spaces")
     private String name;
     private double salary;
     private String department;
