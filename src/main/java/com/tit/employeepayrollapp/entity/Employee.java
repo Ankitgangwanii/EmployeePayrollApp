@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 @ToString
 @Slf4j
+
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

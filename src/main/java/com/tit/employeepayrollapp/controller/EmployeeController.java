@@ -2,40 +2,47 @@ package com.tit.employeepayrollapp.controller;
 
 import com.tit.employeepayrollapp.dto.EmployeeDTO;
 import com.tit.employeepayrollapp.service.EmployeeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/employees")
+@Slf4j
 public class EmployeeController {
     @Autowired
     private EmployeeService service;
 
     @GetMapping
-    public List<EmployeeDTO> getAllEmployees() {
+    public ResponseEntity<List<EmployeeDTO>> getAllEmployees() {
+        log.info("Received request to get all employees");
         return service.getAllEmployees();
     }
 
     @GetMapping("/{id}")
-    public EmployeeDTO getEmployeeById(@PathVariable Long id) {
+    public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable Long id) {
+        log.info("Received request to get employee with ID: {}", id);
         return service.getEmployeeById(id);
     }
 
-
     @PostMapping
-    public EmployeeDTO addEmployee(@RequestBody EmployeeDTO employeeDTO) {
+    public ResponseEntity<EmployeeDTO> addEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        log.info("Received request to add a new employee: {}", employeeDTO);
         return service.addEmployee(employeeDTO);
     }
 
     @PutMapping("/{id}")
-    public EmployeeDTO updateEmployee(@PathVariable Long id, @RequestBody EmployeeDTO employeeDTO) {
+    public ResponseEntity<EmployeeDTO> updateEmployee(@PathVariable Long id, @RequestBody EmployeeDTO employeeDTO) {
+        log.info("Received request to update employee with ID: {}", id);
         return service.updateEmployee(id, employeeDTO);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteEmployee(@PathVariable Long id) {
-        service.deleteEmployee(id);
+    public ResponseEntity<Void> deleteEmployee(@PathVariable Long id) {
+        log.info("Received request to delete employee with ID: {}", id);
+        return service.deleteEmployee(id);
     }
 }

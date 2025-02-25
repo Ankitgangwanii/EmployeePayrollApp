@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 @ToString
 @Slf4j
+
 public class EmployeeDTO {
     private String name;
     private double salary;
