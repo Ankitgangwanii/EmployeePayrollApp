@@ -16,13 +16,13 @@ public class EmployeeService {
 
     // Convert Employee -> EmployeeDTO
     private EmployeeDTO convertToDTO(Employee employee) {
-        return new EmployeeDTO(employee.getName(), employee.getSalary());
+        return new EmployeeDTO(employee.getName(), employee.getSalary(), employee.getDepartment());
     }
 
-    // Convert EmployeeDTO -> Employee
     private Employee convertToEntity(EmployeeDTO dto) {
-        return new Employee(dto.getName(), dto.getSalary());
+        return new Employee(null, dto.getName(), dto.getSalary(), dto.getDepartment());
     }
+
 
     public List<EmployeeDTO> getAllEmployees() {
         return repository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
@@ -42,6 +42,7 @@ public class EmployeeService {
         if (employee != null) {
             employee.setName(dto.getName());
             employee.setSalary(dto.getSalary());
+            employee.setDepartment(dto.getDepartment()); // Handling department
             repository.save(employee);
             return convertToDTO(employee);
         }
