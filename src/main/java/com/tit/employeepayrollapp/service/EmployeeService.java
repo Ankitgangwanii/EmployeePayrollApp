@@ -2,6 +2,7 @@ package com.tit.employeepayrollapp.service;
 
 import com.tit.employeepayrollapp.dto.EmployeeDTO;
 import com.tit.employeepayrollapp.entity.Employee;
+import com.tit.employeepayrollapp.exception.EmployeeNotFoundException;
 import com.tit.employeepayrollapp.repository.EmployeeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,16 +38,15 @@ public class EmployeeService {
 
     public ResponseEntity<EmployeeDTO> getEmployeeById(Long id) {
         log.info("Fetching employee with ID: {}", id);
-        Optional<Employee> employee = repository.findById(id);
 
-        return employee.map(emp -> {
-            log.debug("Employee found: {}", emp);
-            return ResponseEntity.ok(convertToDTO(emp));
-        }).orElseGet(() -> {
-            log.warn("Employee with ID {} not found!", id);
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        });
+        // Using orElseThrow to handle not found case
+        Employee employee = repository.findById(id)
+                .orElseThrow(() -> new EmployeeNotFoundException(id));
+
+        log.debug("Employee found: {}", employee);
+        return ResponseEntity.ok(convertToDTO(employee));
     }
+
 
     public ResponseEntity<EmployeeDTO> addEmployee(EmployeeDTO dto) {
         log.info("Adding new employee: {}", dto);
