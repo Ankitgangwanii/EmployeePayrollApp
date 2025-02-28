@@ -95,4 +95,16 @@ public class EmployeeService {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+    public ResponseEntity<List<EmployeeDTO>> getEmployeesBySalesDepartment() {
+        log.info("Fetching employees from Sales department");
+
+        List<Employee> employees = repository.findEmployeesByDepartment("Sales");
+
+        List<EmployeeDTO> employeeDTOs = employees.stream()
+                .map(this::convertToDTO)  // Using manual conversion method
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(employeeDTOs);
+    }
+
 }
