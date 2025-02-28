@@ -25,7 +25,7 @@ public class EmployeeService {
         return new EmployeeDTO(
                 employee.getName(),
                 employee.getSalary(),
-                employee.getDepartment(),
+                employee.getDepartments(),
                 employee.getGender(),
                 employee.getStartDate(),
                 employee.getNote(),
@@ -35,7 +35,7 @@ public class EmployeeService {
 
     private Employee convertToEntity(EmployeeDTO dto) {
         log.debug("Converting EmployeeDTO to Entity: {}", dto);
-        return new Employee(null, dto.getName(), dto.getSalary(), dto.getDepartment(), dto.getGender(), dto.getStartDate(), dto.getNote(), dto.getProfilePic());
+        return new Employee(null, dto.getName(), dto.getSalary(), dto.getDepartments(), dto.getGender(), dto.getStartDate(), dto.getNote(), dto.getProfilePic());
     }
 
     public ResponseEntity<List<EmployeeDTO>> getAllEmployees() {
@@ -69,7 +69,7 @@ public class EmployeeService {
 
             employee.setName(dto.getName());
             employee.setSalary(dto.getSalary());
-            employee.setDepartment(dto.getDepartment());
+            employee.setDepartments(dto.getDepartments());
             employee.setGender(dto.getGender());
             employee.setStartDate(dto.getStartDate());
             employee.setNote(dto.getNote());

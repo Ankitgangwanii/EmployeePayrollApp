@@ -1,10 +1,7 @@
 package com.tit.employeepayrollapp.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -14,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -32,9 +30,10 @@ public class Employee {
     private String name;
 
     private double salary;
-
-    @NotBlank(message = "Department is required and cannot be empty.")
-    private String department;
+    @ElementCollection
+    @CollectionTable(name = "employee_department", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "department")
+    private   List<String> departments;
 
     @NotBlank(message = "Gender is required and cannot be empty.")
     @Pattern(regexp = "^(Male|Female|Other)$", message = "Gender must be Male, Female, or Other.")

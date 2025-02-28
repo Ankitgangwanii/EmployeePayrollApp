@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,7 +26,7 @@ public class EmployeeDTO {
     private double salary;
 
     @NotBlank(message = "Department is required and cannot be empty.")
-    private String department;
+    private List<String> departments;
 
     @NotBlank(message = "Gender is required and cannot be empty.")
     @Pattern(regexp = "^(Male|Female|Other)$", message = "Gender must be Male, Female, or Other.")
