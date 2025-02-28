@@ -19189,3 +19189,48 @@ java.io.EOFException: null
 2025-02-28T16:05:43.561+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
 2025-02-28T16:06:13.573+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
 2025-02-28T16:06:13.573+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
+2025-02-28T16:06:43.580+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2025-02-28T16:06:43.580+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
+2025-02-28T16:07:13.582+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2025-02-28T16:07:13.582+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
+2025-02-28T16:07:22.301+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SIGINT handler] java.lang.Runtime                        : Runtime.exit() called with status: 130
+
+java.lang.Throwable: Runtime.exit(130)
+	at java.base/java.lang.Shutdown.logRuntimeExit(Shutdown.java:179) ~[na:na]
+	at java.base/java.lang.Shutdown.exit(Shutdown.java:160) ~[na:na]
+	at java.base/java.lang.Terminator$1.handle(Terminator.java:51) ~[na:na]
+	at java.base/jdk.internal.misc.Signal$1.run(Signal.java:218) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
+
+2025-02-28T16:07:22.301+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+2025-02-28T16:07:22.301+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@370a4988, started on Fri Feb 28 16:01:09 IST 2025
+2025-02-28T16:07:22.301+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147482623
+2025-02-28T16:07:22.316+05:30  INFO 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-28T16:07:22.332+05:30  INFO 7548 --- [EmployeePayrollApp] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-02-28T16:07:22.332+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147481599
+2025-02-28T16:07:22.332+05:30 DEBUG 7548 --- [EmployeePayrollApp] [tomcat-shutdown] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerGracefulShutdown' completed its stop procedure
+2025-02-28T16:07:22.332+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerStartStop' completed its stop procedure
+2025-02-28T16:07:22.332+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 1073741823
+2025-02-28T16:07:22.332+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'applicationTaskExecutor' completed its stop procedure
+2025-02-28T16:07:22.332+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase -2147483647
+2025-02-28T16:07:22.332+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'springBootLoggingLifecycle' completed its stop procedure
+2025-02-28T16:07:22.332+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2025-02-28T16:07:22.332+05:30  INFO 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-28T16:07:22.332+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.hibernate.internal.SessionFactoryImpl  : HHH000031: Closing
+2025-02-28T16:07:22.332+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.h.type.spi.TypeConfiguration$Scope     : Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@3c016ccf] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@448a6823]
+2025-02-28T16:07:22.332+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.h.s.i.AbstractServiceRegistryImpl      : Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+2025-02-28T16:07:22.332+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] o.h.b.r.i.BootstrapServiceRegistryImpl   : Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+2025-02-28T16:07:22.332+05:30  INFO 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-28T16:07:22.332+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
+2025-02-28T16:07:22.348+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@135013ad: (connection evicted)
+2025-02-28T16:07:22.348+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@16cdf823: (connection evicted)
+2025-02-28T16:07:22.348+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@57f0f218: (connection evicted)
+2025-02-28T16:07:22.348+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@66ed2201: (connection evicted)
+2025-02-28T16:07:22.348+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@37df0d57: (connection evicted)
+2025-02-28T16:07:22.348+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@6185f53d: (connection evicted)
+2025-02-28T16:07:22.364+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@3391d621: (connection evicted)
+2025-02-28T16:07:22.364+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@2aad9b5d: (connection evicted)
+2025-02-28T16:07:22.364+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@35b36915: (connection evicted)
+2025-02-28T16:07:22.364+05:30 DEBUG 7548 --- [EmployeePayrollApp] [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@6a631065: (connection evicted)
+2025-02-28T16:07:22.364+05:30 DEBUG 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2025-02-28T16:07:22.364+05:30  INFO 7548 --- [EmployeePayrollApp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
