@@ -22,12 +22,20 @@ public class EmployeeService {
     // Convert Employee -> EmployeeDTO
     private EmployeeDTO convertToDTO(Employee employee) {
         log.debug("Converting Employee Entity to DTO: {}", employee);
-        return new EmployeeDTO(employee.getName(), employee.getSalary(), employee.getDepartment());
+        return new EmployeeDTO(
+                employee.getName(),
+                employee.getSalary(),
+                employee.getDepartment(),
+                employee.getGender(),
+                employee.getStartDate(),
+                employee.getNote(),
+                employee.getProfilePic()
+        );
     }
 
     private Employee convertToEntity(EmployeeDTO dto) {
         log.debug("Converting EmployeeDTO to Entity: {}", dto);
-        return new Employee(null, dto.getName(), dto.getSalary(), dto.getDepartment());
+        return new Employee(null, dto.getName(), dto.getSalary(), dto.getDepartment(), dto.getGender(), dto.getStartDate(), dto.getNote(), dto.getProfilePic());
     }
 
     public ResponseEntity<List<EmployeeDTO>> getAllEmployees() {
@@ -38,15 +46,11 @@ public class EmployeeService {
 
     public ResponseEntity<EmployeeDTO> getEmployeeById(Long id) {
         log.info("Fetching employee with ID: {}", id);
-
-        // Using orElseThrow to handle not found case
         Employee employee = repository.findById(id)
                 .orElseThrow(() -> new EmployeeNotFoundException(id));
-
         log.debug("Employee found: {}", employee);
         return ResponseEntity.ok(convertToDTO(employee));
     }
-
 
     public ResponseEntity<EmployeeDTO> addEmployee(EmployeeDTO dto) {
         log.info("Adding new employee: {}", dto);
@@ -66,6 +70,10 @@ public class EmployeeService {
             employee.setName(dto.getName());
             employee.setSalary(dto.getSalary());
             employee.setDepartment(dto.getDepartment());
+            employee.setGender(dto.getGender());
+            employee.setStartDate(dto.getStartDate());
+            employee.setNote(dto.getNote());
+            employee.setProfilePic(dto.getProfilePic());
 
             repository.save(employee);
             log.info("Updated Employee: {}", employee);
